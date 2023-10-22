@@ -8,6 +8,7 @@ Pra iniciar o projeto:
 
 Segue as imagens:
   - Primeiro passo, criar uma pasta chamada "ciag"
+    <img src="/public/logo_page.png" height="50px" alt="dsinChalengelogo" loading="lazy"/>
     <img src="/public/img_1.jpg" width="150"/>
   
   - Segundo passo, colocar as pasto do GitHub chamada "desafio" dentro da pasta chamada "ciag"
