@@ -43,7 +43,7 @@ Segue as imagens:
     
     ![img_2](https://github.com/drp014/ciag/assets/141743253/ea3e3bc2-0aa3-4567-897a-a0867c9f2092)
 
-  - Terceiro passo, digitar "cmd" onde está selecionado
+  - Terceiro passo, dentro da pasta "ciag" digitar "cmd" onde está selecionado
 
     ![img_3](https://github.com/drp014/ciag/assets/141743253/098b8898-5aed-4e11-a8bb-943587882f11)
 
