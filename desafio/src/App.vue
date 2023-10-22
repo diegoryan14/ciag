@@ -37,7 +37,7 @@
                                 </select>
                             </div>
                             <div class='col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center' style="margin-bottom: 20px; margin-top: 25px;">
-                                <button @click="limpar_campos()" type="button" class="btn btn-primary">Limpar Campos</button>
+                                <button @click="limpar_campos()" style="background-color: MediumVioletRed; border-color: MediumVioletRed !important;" type="button" class="btn btn-primary">Limpar Campos</button>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 20px;">
@@ -58,7 +58,7 @@
                                             <p class="mt-4"> <b>Price: </b>${{x.price}}</p>
                                         </div>
                                         <div class="col-12 text-center" style="margin-bottom: 10px; margin-top: 20px;">
-                                            <button @click="more(x)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal_More">More</button>
+                                            <button @click="more(x)" style="background-color: MediumVioletRed; border-color: MediumVioletRed !important;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal_More">More</button>
                                         </div>
                                     </div>
                                 </div>
@@ -81,13 +81,13 @@
                                     <div style="margin-top: 2%;  color:white; width: 500px;" class="col-12 mt-12">
                                         <div class="col-sm-12 col-md-12">
                                             <div style="margin-top: -7px; font-style: italic; font-family: 'Courier New', Courier, monospace;">
-                                                <p class="mt-12"> <b style="color: orange; font-weight: bold;">Description: </b>{{ modal.description }}</p>
+                                                <p class="mt-12"> <b style="color: MediumVioletRed; font-weight: bold;">Description: </b>{{ modal.description }}</p>
                                             </div>
                                             <div style="margin-top: -7px; font-style: italic; font-family: 'Courier New', Courier, monospace;">
-                                                <p class="mt-12"> <b style="color: orange; font-weight: bold;">Quantity in stock: </b>{{ modal.count }}</p>
+                                                <p class="mt-12"> <b style="color: MediumVioletRed; font-weight: bold;">Quantity in stock: </b>{{ modal.count }}</p>
                                             </div>
                                             <div style="margin-top: -7px; font-style: italic; font-family: 'Courier New', Courier, monospace;">
-                                                <p class="mt-12"> <b style="color: orange; font-weight: bold;">Product evaluation: </b>{{ modal.rate }}</p>
+                                                <p class="mt-12"> <b style="color: MediumVioletRed; font-weight: bold;">Product evaluation: </b>{{ modal.rate }}</p>
                                             </div>
                                         </div>
                                     </div>
