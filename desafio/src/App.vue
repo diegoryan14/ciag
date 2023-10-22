@@ -6,7 +6,7 @@
                     <img
                         src="/public/logo_page.png"
                         height="50px"
-                        alt="dsinChalengelogo"
+                        alt="logo_page"
                         loading="lazy"
                     />
                 </a>
