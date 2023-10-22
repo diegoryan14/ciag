@@ -3,15 +3,15 @@
         <div class="row">
             <div class="row col-12">
                 <div class="container texte-center">
-                    <div class="row">
+                    <div class="row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 20px;">
-                            <div class='col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex flex-column justify-content-center' style="margin-bottom: 20px;">
+                            <div class='col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6' style="margin-bottom: 20px;">
                                 <span>Order:</span>
                                 <select class="form-select" aria-label="Ordem" v-model='input.ORDEM' @change="eventOrdem()">
                                 <option v-for='x in dataSourceOrdem' :value="x.CODORDEM"> {{x.NOME}} </option>
                                 </select>
                             </div>
-                            <div class='col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex flex-column justify-content-center' style="margin-bottom: 20px;">
+                            <div class='col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6' style="margin-bottom: 20px;">
                                 <span>Filter by Category:</span>
                                 <select class="form-select" aria-label="Category" v-model='input.CATEGORY' @change="eventCategory()">
                                 <option v-for='x in dataSourceCategory' :value="x"> {{x}} </option>
@@ -21,7 +21,7 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 20px;">
                             <h4 class="text-center" style="font-weight: bold; font-style: italic; font-family: 'Courier New', Courier, monospace;">Products</h4>
                         </div>
-                        <div v-for="x in api" style="margin-top: 5%; margin-bottom: 5%;" class="col-6 mt-4 d-flex justify-content-center">
+                        <div v-for="x in api" style="margin-top: 5%; margin-bottom: 5%;" class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center">
                             <div class="col-sm-12 col-md-8">
                                 <div id="card" style="background-color: white; height: 550px;" class="card">
                                     <div  class="card-body row">
