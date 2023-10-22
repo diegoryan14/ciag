@@ -1,21 +1,43 @@
 <template>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand ms-2" href="#">
+                    <img
+                        src="/public/logo_page.png"
+                        height="50px"
+                        alt="dsinChalengelogo"
+                        loading="lazy"
+                    />
+                </a>
+                <div class="collapse navbar-collapse ms-5" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" style="font-weight: bold; color: MediumVioletRed;">FAKE STORE</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="container texte-center">
         <div class="row">
             <div class="row col-12">
                 <div class="container texte-center">
                     <div class="row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 20px;">
-                            <div class='col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6' style="margin-bottom: 20px;">
+                            <div class='col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5' style="margin-bottom: 20px;">
+                                <span>Filter by Category:</span>
+                                <select class="form-select" aria-label="Category" v-model='input.CATEGORY' @change="event()">
+                                <option v-for='x in dataSourceCategory' :value="x"> {{x}} </option>
+                                </select>
+                            </div>
+                            <div class='col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5' style="margin-bottom: 20px;">
                                 <span>Order:</span>
-                                <select class="form-select" aria-label="Ordem" v-model='input.ORDEM' @change="eventOrdem()">
+                                <select class="form-select" aria-label="Ordem" v-model='input.ORDEM' @change="event()">
                                 <option v-for='x in dataSourceOrdem' :value="x.CODORDEM"> {{x.NOME}} </option>
                                 </select>
                             </div>
-                            <div class='col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6' style="margin-bottom: 20px;">
-                                <span>Filter by Category:</span>
-                                <select class="form-select" aria-label="Category" v-model='input.CATEGORY' @change="eventCategory()">
-                                <option v-for='x in dataSourceCategory' :value="x"> {{x}} </option>
-                                </select>
+                            <div class='col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center' style="margin-bottom: 20px; margin-top: 25px;">
+                                <button @click="limpar_campos()" type="button" class="btn btn-primary">Limpar Campos</button>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 20px;">
@@ -98,66 +120,79 @@
             input: {
                 ORDEM: null,
                 CATEGORY: null
-            },
-            // guarda_api: [],
-            // ult_valor: 0
+            }
         }
     },
     computed: {
     },
     methods: {
         get_api(){
-            fetch('https://fakestoreapi.com/products/').then(res=>res.json()).then(json=>{this.api = json});
+            this.api = [];
+            fetch('https://fakestoreapi.com/products?limit=25').then(res=>res.json()).then(json=>{this.api = json});
         },
-        // get_api_test(){
-        //     fetch('https://fakestoreapi.com/products/').then(res=>res.json()).then(json=>console.log(json));
-        // },
+        get_categories(){
+            fetch('https://fakestoreapi.com/products/categories').then(res=>res.json()).then(json=>{this.dataSourceCategory = json});
+        },
+        get_ordem(){
+            this.dataSourceOrdem = [{CODORDEM: '0', NOME: 'Aleatório'}, {CODORDEM: '1', NOME: 'Menor Preço'}, {CODORDEM: '2', NOME: 'Maior Preço'}];
+        },
+        event(){
+            if(this.input.CATEGORY != null && this.input.ORDEM != null){
+                if(this.input.ORDEM == 0){
+                    this.api = [];
+                    fetch('https://fakestoreapi.com/products/category/' + this.input.CATEGORY.trim()).then(res=>res.json()).then(json=>{this.api = json});
+                    return;
+                }
+                if(this.input.ORDEM == 1){
+                    this.api = [];
+                    fetch('https://fakestoreapi.com/products/category/' + this.input.CATEGORY.trim()).then(res=>res.json()).then(json=>{this.api = json.sort((x, y) => x.price - y.price)});
+                    return;
+                }
+                if(this.input.ORDEM == 2){
+                    this.api = [];
+                    fetch('https://fakestoreapi.com/products/category/' + this.input.CATEGORY.trim()).then(res=>res.json()).then(json=>{this.api = json.sort((x, y) => y.price - x.price)});
+                    return;
+                }
+            }
+            if(this.input.CATEGORY != null && this.input.ORDEM == null){
+                this.api = [];
+                fetch('https://fakestoreapi.com/products/category/' + this.input.CATEGORY.trim()).then(res=>res.json()).then(json=>{this.api = json});
+                return;
+            }
+            if(this.input.CATEGORY == null && this.input.ORDEM != null){
+                if(this.input.ORDEM == 0){
+                    this.api = [];
+                    fetch('https://fakestoreapi.com/products?limit=25').then(res=>res.json()).then(json=>{this.api = json});
+                    return;
+                }
+                if(this.input.ORDEM == 1){
+                    this.api = [];
+                    fetch('https://fakestoreapi.com/products?limit=25').then(res=>res.json()).then(json=>{this.api = json.sort((x, y) => x.price - y.price)});
+                    return;
+                }
+                if(this.input.ORDEM == 2){
+                    this.api = [];
+                    fetch('https://fakestoreapi.com/products?limit=25').then(res=>res.json()).then(json=>{this.api = json.sort((x, y) => y.price - x.price)});
+                    return;
+                }
+            }
+        },
         more(x){
             this.modal.title = x.title;
             this.modal.count = x.rating.count;
             this.modal.description = x.description;
             this.modal.rate = x.rating.rate;
         },
-        get_ordem(){
-            this.dataSourceOrdem = [{CODORDEM: '0', NOME: 'Aleatório'}, {CODORDEM: '1', NOME: 'Menor Preço'}, {CODORDEM: '2', NOME: 'Maior Preço'}];
-        },
-        eventOrdem(){
+        limpar_campos(){
             this.input.CATEGORY = null;
-            this.input.ORDEM = parseInt(this.input.ORDEM);
-            
-            if(this.input.ORDEM == 0){
-                this.api = [];
-                fetch('https://fakestoreapi.com/products/').then(res=>res.json()).then(json=>{this.api = json});
-                this.api = this.guarda_api;
-                return;
-            }
-            if(this.input.ORDEM == 1){
-                this.api = [];
-                fetch('https://fakestoreapi.com/products?sort=desc').then(res=>res.json()).then(json=>{this.api = json});
-                return;
-            }
-            if(this.input.ORDEM == 2){
-                this.api = [];
-                fetch('https://fakestoreapi.com/products?sort=asc').then(res=>res.json()).then(json=>{this.api = json});
-                return;
-            }
-        },
-        get_categories(){
-            fetch('https://fakestoreapi.com/products/categories').then(res=>res.json()).then(json=>{this.dataSourceCategory = json});
-        },
-        eventCategory(){
             this.input.ORDEM = null;
-
-            this.api = [];
-            fetch('https://fakestoreapi.com/products/category/' + this.input.CATEGORY.trim()).then(res=>res.json()).then(json=>{this.api = json});
-            return;
-        },
+            this.get_api();
+        }
     },
     mounted: function () {
         this.get_api();
-        // this.get_api_test();
-        this.get_ordem();
         this.get_categories();
+        this.get_ordem();
     }
 }
 </script>
