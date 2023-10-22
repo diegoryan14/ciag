@@ -11,7 +11,7 @@ Segue as imagens:
 
     ![img_1](https://github.com/drp014/ciag/assets/141743253/e960cec5-3dd2-4364-a28f-9db078b994ec)
   
-  - Segundo passo, colocar as pasto do GitHub chamada "desafio" dentro da pasta chamada "ciag"
+  - Segundo passo, colocar as pasta do GitHub chamada "desafio" dentro da pasta chamada "ciag"
     
     ![img_2](https://github.com/drp014/ciag/assets/141743253/ea3e3bc2-0aa3-4567-897a-a0867c9f2092)
 
