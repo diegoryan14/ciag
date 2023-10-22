@@ -37,7 +37,7 @@
                                 </select>
                             </div>
                             <div class='col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center' style="margin-bottom: 20px; margin-top: 25px;">
-                                <button @click="limpar_campos()" style="background-color: MediumVioletRed; border-color: MediumVioletRed !important;" type="button" class="btn btn-primary">Limpar Campos</button>
+                                <button @click="limpar_campos()" style="background-color: MediumVioletRed; border-color: MediumVioletRed !important;" type="button" class="btn btn-primary">Clear fields</button>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 20px;">
@@ -134,7 +134,7 @@
             fetch('https://fakestoreapi.com/products/categories').then(res=>res.json()).then(json=>{this.dataSourceCategory = json});
         },
         get_ordem(){
-            this.dataSourceOrdem = [{CODORDEM: '0', NOME: 'Aleatório'}, {CODORDEM: '1', NOME: 'Menor Preço'}, {CODORDEM: '2', NOME: 'Maior Preço'}];
+            this.dataSourceOrdem = [{CODORDEM: '0', NOME: 'Random'}, {CODORDEM: '1', NOME: 'Lowest price'}, {CODORDEM: '2', NOME: 'Biggest price'}];
         },
         event(){
             if(this.input.CATEGORY != null && this.input.ORDEM != null){
