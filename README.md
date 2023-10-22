@@ -18,6 +18,7 @@ Segue as imagens:
 
   - Quarto passo, assim que abrir o cmd entrar na pasta "desafio" digitando "cd desafio"
     <img src="/img_4.jpg" width="150"/>
+    ![img_1](https://github.com/drp014/ciag/assets/141743253/e960cec5-3dd2-4364-a28f-9db078b994ec)
 
   - Quinto passo, depois que digitou o comando "cd desafio" digitar o comando "npm install"
     <img src="/img_5.jpg" width="150"/>
