@@ -1,6 +1,6 @@
 # Desafio ciag
 
-Projeto desenvolvido em vue js, com a biblioteca do bootstrap
+Projeto desenvolvido em vue js, JavaScript, HTML, CSS, com a biblioteca do bootstrap
 
 Pra iniciar o projeto:
   - Abrir o cmd ir ate a pasta do projeto (ciag) -> cd desafio -> npm install -> npm run dev
